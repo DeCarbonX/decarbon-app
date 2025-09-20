@@ -1,11 +1,11 @@
-"use client";
-import { zodResolver } from "@hookform/resolvers/zod";
+'use client';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Loader2, SendIcon } from "lucide-react";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Button } from "./ui/button";
+import { Loader2, SendIcon } from 'lucide-react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { Button } from './ui/button';
 import {
   Dialog,
   DialogContent,
@@ -13,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "./ui/dialog";
+} from './ui/dialog';
 import {
   Form,
   FormField,
@@ -22,15 +22,15 @@ import {
   FormControl,
   FormDescription,
   FormMessage,
-} from "./ui/form";
-import { Input } from "./ui/input";
-import useMintCarbonToken from "@/hooks/useMintCarbonToken";
-import { toast } from "sonner";
-import { useCurrentAccount } from "@iota/dapp-kit";
+} from './ui/form';
+import { Input } from './ui/input';
+import useMintCarbonToken from '@/hooks/useMintCarbonToken';
+import { toast } from 'sonner';
+import { useCurrentAccount } from '@iota/dapp-kit';
 
 const formSchema = z.object({
   to: z.string(),
-  amount: z.coerce.number().min(1, "Amount must be greater than 0"),
+  amount: z.coerce.number<number>().min(1, 'Amount must be at least 1'),
 });
 
 type FormSchemaType = z.infer<typeof formSchema>;
@@ -56,7 +56,7 @@ const MintCarbonTokenModal: React.FC<Props> = ({ nftObjectId }) => {
 
   function onSubmit(values: FormSchemaType) {
     toast.promise(mintCarbonToken({ to: values.to, amount: values.amount }), {
-      loading: "Issuing Carbon Token...",
+      loading: 'Issuing Carbon Token...',
       success: () => {
         form.reset();
         setOpen(false);
@@ -71,7 +71,7 @@ const MintCarbonTokenModal: React.FC<Props> = ({ nftObjectId }) => {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button>
-          <SendIcon className="mr-2" />
+          <SendIcon className='mr-2' />
           Mint Carbon Token
         </Button>
       </DialogTrigger>
@@ -86,15 +86,15 @@ const MintCarbonTokenModal: React.FC<Props> = ({ nftObjectId }) => {
         </DialogHeader>
         <div>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
               <FormField
                 control={form.control}
-                name="to"
+                name='to'
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>To Address</FormLabel>
                     <FormControl>
-                      <Input placeholder="Receiver address" {...field} />
+                      <Input placeholder='Receiver address' {...field} />
                     </FormControl>
                     <FormDescription>
                       This address will receive the Carbon Token.
@@ -105,14 +105,14 @@ const MintCarbonTokenModal: React.FC<Props> = ({ nftObjectId }) => {
               />
               <FormField
                 control={form.control}
-                name="amount"
+                name='amount'
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Amount</FormLabel>
                     <FormControl>
                       <Input
-                        type="number"
-                        placeholder="Amount of Carbon Token"
+                        type='number'
+                        placeholder='Amount of Carbon Token'
                         {...field}
                       />
                     </FormControl>
@@ -123,12 +123,12 @@ const MintCarbonTokenModal: React.FC<Props> = ({ nftObjectId }) => {
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={isPending}>
+              <Button type='submit' disabled={isPending}>
                 {isPending ? (
-                  <Loader2 className="mr-2 animate-spin" />
+                  <Loader2 className='mr-2 animate-spin' />
                 ) : (
-                  <SendIcon className="mr-2" />
-                )}{" "}
+                  <SendIcon className='mr-2' />
+                )}{' '}
                 Issue
               </Button>
             </form>
