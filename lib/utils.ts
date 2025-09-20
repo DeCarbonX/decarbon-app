@@ -1,9 +1,9 @@
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import {
   isValidIotaAddress,
   isValidTransactionDigest,
-} from "@iota/iota-sdk/utils";
+} from '@iota/iota-sdk/utils';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -11,32 +11,31 @@ export function cn(...inputs: ClassValue[]) {
 
 export const stringCompact = (address?: string, chars = 4) => {
   if (!address) {
-    return "";
+    return '';
   }
   return `${address.slice(0, chars)}...${address.slice(-chars)}`;
 };
 
-export const getExplorerUrl = (id?: string, network: string = "mainnet") => {
+export const getExplorerUrl = (id?: string, network: string = 'mainnet') => {
   if (!id) {
-    return "";
+    return '';
   }
   const path = isValidIotaAddress(id)
-    ? "address"
+    ? 'address'
     : isValidTransactionDigest(id)
-      ? "txblock"
-      : "object";
-  if (network === "testnet") {
-    return `https://explorer.rebased.iota.org/${path}/${id}?network=testnet`;
+    ? 'txblock'
+    : 'object';
+  if (network !== 'mainnet') {
+    return `https://explorer.iota.org/${path}/${id}`;
   }
-  return `https://explorer.rebased.iota.org/${path}/${id}`;
+  return `https://explorer.iota.org/${path}/${id}?network=${network}`;
 };
-
 
 export function truncateWallet(
   str: string,
   num: number,
   middle: boolean = false,
-  maskChar: string = "."
+  maskChar: string = '.'
 ) {
   if (str.length > num && str.length > 3) {
     if (!middle) {
