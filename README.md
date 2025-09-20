@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Carbon Credit Tokenization Dashboard
 
-## Getting Started
+A web-based dashboard for managing, minting, and trading tokenized carbon credits on blockchain.
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The Carbon Credit Tokenization Dashboard is a web application that allows users to create, manage, mint, trade, and redeem tokenized carbon credits. The platform bridges traditional carbon credit registries with blockchain technology, creating a more liquid, transparent, and accessible market for carbon offset trading.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[![Watch the video](https://img.youtube.com/vi/tvpCcdSoAGY/0.jpg)](https://www.youtube.com/watch?v=tvpCcdSoAGY)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
 
-## Learn More
+### Admin Features
 
-To learn more about Next.js, take a look at the following resources:
+- Configure carbon credit registry endpoints
+- Create and deploy new carbon credit tokens
+- Manage the whitelist of addresses allowed to mint tokens
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Minter Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Mint new carbon credit tokens against verified carbon credits
+- View mint history and status
 
-## Deploy on Vercel
+### Trader Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Swap carbon credit tokens for other cryptocurrencies
+- Redeem carbon credit tokens for the underlying carbon credits
+- View redemption history
