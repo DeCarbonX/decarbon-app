@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import * as React from "react";
+import * as React from 'react';
 import {
   ArrowDownUpIcon,
   Globe2Icon,
@@ -14,10 +14,10 @@ import {
   Send,
   SettingsIcon,
   UsersIcon,
-} from "lucide-react";
+} from 'lucide-react';
 
-import { NavMain } from "@/components/NavMain";
-import { NavSecondary } from "@/components/NavSecondary";
+import { NavMain } from '@/components/NavMain';
+import { NavSecondary } from '@/components/NavSecondary';
 import {
   Sidebar,
   SidebarContent,
@@ -26,81 +26,81 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import { NavUser } from "./NavUser";
+} from '@/components/ui/sidebar';
+import { NavUser } from './NavUser';
 
 const data = {
   user: {
-    name: "Leo Pham",
-    email: "hongthaipro@gmail.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: 'Leo Pham',
+    email: 'hongthaipro@gmail.com',
+    avatar: '/avatars/shadcn.jpg',
   },
   navMain: [
     {
-      title: "Data endpoints",
-      url: "/admin/endpoints",
+      title: 'Data endpoints',
+      url: '/admin/endpoints',
       icon: SettingsIcon,
       isActive: true,
     },
     {
-      title: "Create token",
-      url: "/admin/create-token",
+      title: 'Create token',
+      url: '/admin/create-token',
       icon: PlusCircleIcon,
     },
     {
-      title: "User Idenity",
-      url: "/admin/user-identity",
+      title: 'User Idenity',
+      url: '/admin/user-identity',
       icon: UsersIcon,
     },
   ],
   navMainForMinter: [
     {
-      title: "Mint token",
-      url: "/minter/mint-token",
+      title: 'Mint token',
+      url: '/minter/mint-token',
       icon: LayersIcon,
       isActive: true,
     },
     {
-      title: "Mint history",
-      url: "/minter/mint-history",
+      title: 'Mint history',
+      url: '/minter/mint-history',
       icon: HistoryIcon,
     },
   ],
   navMainForTrader: [
     {
-      title: "Swap",
-      url: "/trader/swap",
+      title: 'Swap',
+      url: '/trader/swap',
       icon: ArrowDownUpIcon,
       isActive: true,
     },
     {
-      title: "Retire",
-      url: "/trader/retire",
+      title: 'Retire',
+      url: '/trader/retire',
       icon: RefreshCwIcon,
     },
   ],
   navMainSimulator: [
     {
-      title: "Web2 Simulator 1",
-      url: "/web2/cace65ff-fbba-46ab-814a-71b8f67f40df",
+      title: 'Web2 Simulator 1',
+      url: '/web2/cace65ff-fbba-46ab-814a-71b8f67f40df',
       icon: GlobeIcon,
       isActive: true,
     },
     {
-      title: "Web2 Simulator 2",
-      url: "/web2/ede84f08-0de1-4a63-a5d6-ced8e940ade4",
+      title: 'Web2 Simulator 2',
+      url: '/web2/ede84f08-0de1-4a63-a5d6-ced8e940ade4',
       icon: Globe2Icon,
     },
   ],
   navSecondary: [
     {
-      title: "Support",
-      url: "#",
+      title: 'Support',
+      url: '#',
       icon: LifeBuoy,
     },
     {
-      title: "Feedback",
-      url: "#",
+      title: 'Feedback',
+      url: '#',
       icon: Send,
     },
   ],
@@ -108,18 +108,20 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar variant="inset" {...props}>
+    <Sidebar variant='inset' {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
-              <a href="#">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <LeafyGreenIcon className="size-4" />
+            <SidebarMenuButton size='lg' asChild>
+              <a href='#'>
+                <div className='flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground'>
+                  <LeafyGreenIcon className='size-4' />
                 </div>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">Carbon Credit</span>
-                  <span className="truncate text-xs">Enterprise</span>
+                <div className='grid flex-1 text-left text-sm leading-tight'>
+                  <span className='truncate font-semibold'>DeCarbon</span>
+                  <span className='truncate text-xs'>
+                    Decentralize Carbon Exchange
+                  </span>
                 </div>
               </a>
             </SidebarMenuButton>
@@ -127,11 +129,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain label="ADMIN" items={data.navMain} />
-        <NavMain label="MINTER" items={data.navMainForMinter} />
-        <NavMain label="TRADER" items={data.navMainForTrader} />
-        <NavMain label="SIMULATOR" items={data.navMainSimulator} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavMain label='ADMIN' items={data.navMain} />
+        <NavMain label='MINTER' items={data.navMainForMinter} />
+        <NavMain label='TRADER' items={data.navMainForTrader} />
+        <NavMain label='SIMULATOR' items={data.navMainSimulator} />
+        <NavSecondary items={data.navSecondary} className='mt-auto' />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
