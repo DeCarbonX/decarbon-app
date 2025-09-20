@@ -1,103 +1,155 @@
-import Image from "next/image";
+'use client';
+
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Cog, Users, CreditCard, Clock, BarChart3 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className='min-h-screen p-6 container mx-auto'>
+      <header className='mb-8'>
+        <h1 className='text-3xl font-bold'>
+          Carbon Credit Tokenization Dashboard
+        </h1>
+        <div className='h-1 w-16 bg-gradient-to-r from-emerald-400 to-emerald-500 mt-2'></div>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Card className='bg-[#1a2236] border-0 shadow-lg mb-8'>
+        <CardHeader>
+          <CardTitle className='text-xl text-white'>
+            Welcome to the Dashboard
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className='bg-[#141c2f] p-6 rounded-lg text-white'>
+            <p className='mb-4'>
+              Welcome to the Carbon Credit Tokenization Dashboard. This platform
+              allows you to create, manage, mint, trade, and redeem tokenized
+              carbon credits on the blockchain.
+            </p>
+            <p>
+              Use the sidebar navigation to access different sections of the
+              dashboard or select one of the quick actions below.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        {/* Registry Endpoint Card */}
+        <Card className='bg-[#1a2236] border-0 shadow-lg relative overflow-hidden'>
+          <div className='absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-cyan-500 to-purple-600'></div>
+          <CardHeader className='pb-2'>
+            <div className='bg-emerald-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
+              <Cog className='h-6 w-6 text-white' />
+            </div>
+            <CardTitle className='text-white'>Registry Endpoint</CardTitle>
+            <CardDescription className='text-gray-400'>
+              Configure the connection to the carbon credit registry
+            </CardDescription>
+          </CardHeader>
+          <CardFooter>
+            <Link href='/admin/endpoints'>
+              <Button className='w-full bg-emerald-500 hover:bg-emerald-600 text-white'>
+                Configure Endpoint
+              </Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
+        {/* Whitelist Management Card */}
+        <Card className='bg-[#1a2236] border-0 shadow-lg relative overflow-hidden'>
+          <div className='absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-cyan-500 to-purple-600'></div>
+          <CardHeader className='pb-2'>
+            <div className='bg-blue-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
+              <Users className='h-6 w-6 text-white' />
+            </div>
+            <CardTitle className='text-white'>User identity</CardTitle>
+            <CardDescription className='text-gray-400'>
+              Manage addresses allowed to mint tokens
+            </CardDescription>
+          </CardHeader>
+          <CardFooter>
+            <Link href='/admin/user-identity'>
+              <Button
+                variant='outline'
+                className='w-full border-gray-700 text-white hover:bg-gray-800'
+              >
+                User Identity
+              </Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
+        {/* Mint Tokens Card */}
+        <Card className='bg-[#1a2236] border-0 shadow-lg relative overflow-hidden'>
+          <div className='absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-cyan-500 to-purple-600'></div>
+          <CardHeader className='pb-2'>
+            <div className='bg-[#4263eb] w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
+              <CreditCard className='h-6 w-6 text-white' />
+            </div>
+            <CardTitle className='text-white'>Mint Tokens</CardTitle>
+            <CardDescription className='text-gray-400'>
+              Mint new carbon credit tokens against verified carbon credits
+            </CardDescription>
+          </CardHeader>
+          <CardFooter>
+            <Link href='/minter/mint-token'>
+              <Button className='w-full bg-[#4263eb] hover:bg-[#3b5bdb] text-white'>
+                Mint Tokens
+              </Button>
+            </Link>
+          </CardFooter>
+        </Card>
+
+        {/* Mint History Card */}
+        <Card className='bg-[#1a2236] border-0 shadow-lg relative overflow-hidden'>
+          <div className='absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-cyan-500 to-purple-600'></div>
+          <CardHeader className='pb-2'>
+            <div className='bg-[#1a2236] border border-gray-700 w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
+              <Clock className='h-6 w-6 text-white' />
+            </div>
+            <CardTitle className='text-white'>Mint History</CardTitle>
+            <CardDescription className='text-gray-400'>
+              View history of all minting operations
+            </CardDescription>
+          </CardHeader>
+          <CardFooter>
+            <Button className='w-full bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white'>
+              View History
+            </Button>
+          </CardFooter>
+        </Card>
+
+        {/* Redeem Tokens Card */}
+        <Card className='bg-[#1a2236] border-0 shadow-lg relative overflow-hidden'>
+          <div className='absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-cyan-500 to-purple-600'></div>
+          <CardHeader className='pb-2'>
+            <div className='bg-amber-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4'>
+              <BarChart3 className='h-6 w-6 text-white' />
+            </div>
+            <CardTitle className='text-white'>Retire Tokens</CardTitle>
+            <CardDescription className='text-gray-400'>
+              Retire carbon credit tokens against verified carbon credits
+            </CardDescription>
+          </CardHeader>
+          <CardFooter>
+            <Link href='/trader/retire'>
+              <Button className='w-full bg-amber-500 hover:bg-amber-600 text-white'>
+                Retire Tokens
+              </Button>
+            </Link>
+          </CardFooter>
+        </Card>
+      </div>
     </div>
   );
 }
